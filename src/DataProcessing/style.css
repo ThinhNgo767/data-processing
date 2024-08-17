@@ -1,0 +1,34 @@
+.App textarea {
+  font-family: "Roboto Mono", monospace;
+
+  line-height: 1.5;
+  field-sizing: content;
+  min-height: 5lh;
+  resize: none;
+  width: 20vw;
+}
+.App .container_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.App .container_box .item_content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.App .container_box .item_btn {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.swal2-container .textData {
+  font-family: "Roboto Mono", monospace;
+  line-height: 1.5;
+  field-sizing: content;
+  min-height: 5lh;
+  resize: none;
+  width: 30vw;
+}
