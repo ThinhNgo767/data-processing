@@ -82,7 +82,6 @@ img.frame_preview:hover {
 }
 .box_btn-back--next {
   flex-direction: column;
-  margin: 1rem;
   gap: 1rem;
 }
 .box_preview_frame {
@@ -197,10 +196,23 @@ button.delete_frame_btn:hover {
   background-color: #47a281;
   color: #fff;
 }
+button.control-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0.25rem;
+  width: 3rem;
+  height: 1.8rem;
+  font-size: 16px;
+  background-color: #47a281;
+  color: #fff;
+  border: 1px solid #45a049;
+  border-radius: 3px;
+}
 
 @media only screen and (max-width: 480px) {
   video.video_file {
-    min-width: 20rem;
+    min-width: 90vw;
     max-height: 12rem;
   }
   .frame-gallery {

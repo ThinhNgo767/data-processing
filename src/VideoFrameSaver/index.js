@@ -1,8 +1,14 @@
 import "./style.css";
 
 import React, { useRef, useState } from "react";
-import { FaRegHandPointLeft, FaRegHandPointRight } from "react-icons/fa6";
+import {
+  FaRegHandPointLeft,
+  FaRegHandPointRight,
+  FaPlay,
+  FaPause,
+} from "react-icons/fa6";
 import { BsCaretUpFill, BsCaretDownFill } from "react-icons/bs";
+import { AiFillSound, AiFillMuted } from "react-icons/ai";
 import { v4 as uuidv4 } from "uuid";
 
 function VideoFrameSaver() {
@@ -12,6 +18,8 @@ function VideoFrameSaver() {
   const [frames, setFrames] = useState([]);
   const [second, setSecond] = useState(0);
   const [formatImg, setFormatImg] = useState("jpg");
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
 
   const handleVideoUpload = (event) => {
     const file = event.target.files[0];
@@ -28,6 +36,25 @@ function VideoFrameSaver() {
     setSecond(0);
     setFrames([]);
     videoRef.current.src = "";
+  };
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
+
+  const togglePlayPause = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+        setIsPlaying(true);
+      } else {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
+    }
   };
 
   const handleDownloadPicture = (url, name) => {
@@ -123,12 +150,16 @@ function VideoFrameSaver() {
         <>
           <video
             ref={videoRef}
-            controlsList="nodownload"
+            muted
+            controlsList="nodownload noplaybackrate nofullscreen"
             controls
             className="video_file"
-            src={videoFile}
-          />
-
+          >
+            <source src={videoFile} type="video/mp4" />
+            <source src={videoFile} type="video/mov" />
+            <source src={videoFile} type="video/avi" />
+            <source src={videoFile} type="video/3gp" />
+          </video>
           <div className="box_preview_frame box_flex">
             <button
               onClick={() => previewFrame(formatImg)}
@@ -148,6 +179,14 @@ function VideoFrameSaver() {
               <option value="gif">GIF</option>
               <option value="bmp">BMP</option>
             </select>
+          </div>
+          <div className="box_flex">
+            <button onClick={togglePlayPause} className="control-button">
+              {isPlaying ? <FaPause /> : <FaPlay />}
+            </button>
+            <button onClick={toggleMute} className="control-button">
+              {isMuted ? <AiFillMuted /> : <AiFillSound />}
+            </button>
           </div>
           <div className="box_btn-back--next box_flex">
             <label htmlFor="enter_seconds" className="enter_seconds box_flex">
@@ -189,6 +228,7 @@ function VideoFrameSaver() {
           </div>
 
           <canvas ref={canvasRef} style={{ display: "none" }} />
+
           <div className="frame-gallery box_flex">
             {frames.map((frame, index) => (
               <div key={frame.id} className="box_flex box_item_img">

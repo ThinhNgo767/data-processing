@@ -48,3 +48,16 @@
   gap: 1rem;
   margin: 1rem 0;
 }
+video::-webkit-media-controls {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-start-playback-button,
+video::-webkit-media-controls-timeline,
+video::-webkit-media-controls-seek-back-button,
+video::-webkit-media-controls-seek-forward-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
