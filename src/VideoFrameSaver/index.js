@@ -150,7 +150,9 @@ function VideoFrameSaver() {
           <video
             ref={videoRef}
             muted
-            controlsList="nodownload noplaybackrate nofullscreen"
+            playsInline
+            controls
+            controlsList="nodownload nofullscreen noremoteplayback"
             className="video_file"
           >
             <source src={videoFile} type="video/mp4" />

@@ -1,3 +1,7 @@
+video::-webkit-media-controls {
+  display: none !important;
+}
+
 button {
   cursor: pointer;
 }
