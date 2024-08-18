@@ -15,6 +15,7 @@ function App() {
           type="checkbox"
           checked={checked}
           onChange={(e) => setChecked(e.target.checked)}
+          id="app_trans"
         ></input>
         <label style={styleLabel} className="title_trans">
           {checked ? "Image Upscaler" : "Video FrameSaver"}

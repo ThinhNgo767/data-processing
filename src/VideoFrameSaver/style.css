@@ -23,9 +23,11 @@ button {
   gap: 1rem;
 }
 video.video_file {
-  min-width: 50rem;
+  max-width: 50rem;
   max-height: 30rem;
   margin-top: 20px;
+  width: fit-content;
+  height: fit-content;
 }
 
 input[type="file"] {
@@ -146,11 +148,13 @@ label.enter_seconds {
   margin: 1rem 0;
 }
 div.up-down button {
+  width: 2rem;
+  height: 1.4rem;
   background-color: transparent;
   border: 1px solid black;
   border-radius: 3px;
   margin-left: 5px;
-  height: 1.6rem;
+
   font-size: 18px;
   color: green;
   align-items: center;

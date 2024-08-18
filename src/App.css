@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
 .App {
   font-family: "Roboto Mono", monospace;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
-.App input[type="checkbox"] {
+.App input[type="checkbox"]#app_trans {
   appearance: none;
   position: relative;
   height: 2rem;
@@ -15,7 +16,7 @@
   border: 1px solid #333333;
   transition: 0.35s;
 }
-.App input[type="checkbox"]::after {
+.App input[type="checkbox"]#app_trans::after {
   position: absolute;
   content: "";
   top: 50%;
@@ -27,11 +28,11 @@
   background: #333333;
   transition: 0.35s;
 }
-.App input[type="checkbox"]:checked {
+.App input[type="checkbox"]#app_trans:checked {
   background-color: #087ea4;
   border: 1px solid #087ea4;
 }
-.App input[type="checkbox"]:checked::after {
+.App input[type="checkbox"]#app_trans:checked::after {
   left: 75%;
   background-color: white;
 }
@@ -47,10 +48,6 @@
   align-items: center;
   gap: 1rem;
   margin: 1rem 0;
-}
-video::-webkit-media-controls {
-  display: none !important;
-  -webkit-appearance: none;
 }
 
 video::-webkit-media-controls-play-button,

@@ -1,9 +1,7 @@
-import "./style.css";
-
 import React, { useState, useRef } from "react";
 import Pica from "pica";
 
-const ImageUpscaler = () => {
+const ImageResizer = () => {
   const [imageSrc, setImageSrc] = useState(null);
   const [resizedImage, setResizedImage] = useState(null);
   const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
@@ -220,4 +218,4 @@ const ImageUpscaler = () => {
   );
 };
 
-export default ImageUpscaler;
+export default ImageResizer;

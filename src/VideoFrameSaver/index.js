@@ -8,7 +8,7 @@ import {
   FaPause,
 } from "react-icons/fa6";
 import { BsCaretUpFill, BsCaretDownFill } from "react-icons/bs";
-import { AiFillSound, AiFillMuted } from "react-icons/ai";
+import { BiSolidVolumeFull, BiSolidVolumeMute } from "react-icons/bi";
 import { v4 as uuidv4 } from "uuid";
 
 function VideoFrameSaver() {
@@ -23,7 +23,6 @@ function VideoFrameSaver() {
 
   const handleVideoUpload = (event) => {
     const file = event.target.files[0];
-
     if (file) {
       setVideoFile(URL.createObjectURL(file));
     }
@@ -152,7 +151,6 @@ function VideoFrameSaver() {
             ref={videoRef}
             muted
             controlsList="nodownload noplaybackrate nofullscreen"
-            controls
             className="video_file"
           >
             <source src={videoFile} type="video/mp4" />
@@ -185,7 +183,7 @@ function VideoFrameSaver() {
               {isPlaying ? <FaPause /> : <FaPlay />}
             </button>
             <button onClick={toggleMute} className="control-button">
-              {isMuted ? <AiFillMuted /> : <AiFillSound />}
+              {isMuted ? <BiSolidVolumeMute /> : <BiSolidVolumeFull />}
             </button>
           </div>
           <div className="box_btn-back--next box_flex">
